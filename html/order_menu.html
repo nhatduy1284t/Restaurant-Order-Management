@@ -15,30 +15,33 @@
   <body>
     <div id="root">
         <div class="d-flex pl-2 ">
-            <nav id="nav" class="navbar navbar-expand-sm navbar-light bg-transparent flex-col"> <!-- Start of nav -->
-                <a class="navbar-brand mb-2" href="#"><i class="fa-solid fa-burger ml-3"></i></a>
-                <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="collapsibleNavId">
-                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0 d-flex flex-col align-items-center">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Dishes</a>
-                        </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">New order</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Orders</a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>  <!-- End of nav -->
+            <div class="nav-btn-container"><i class="fa-solid fa-bars nav-btn"></i></div>
+            <div class="sidebar">
+                <nav id="nav" class="navbar navbar-expand-sm navbar-light bg-transparent flex-col"> <!-- Start of nav -->
+                    <a class="navbar-brand mb-2" href="#"><i class="fa-solid fa-burger ml-4"></i></a>
+                    <!-- <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button> -->
+                    <div class="collapse navbar-collapse" id="collapsibleNavId">
+                        <ul class="navbar-nav mr-auto mt-2 mt-lg-0 d-flex flex-col align-items-center">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Dishes</a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="#">New order</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Orders</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>  <!-- End of nav -->
+            </div>
             <div id="menu"> <!-- start of menu -->
                 <div class="py-3 px-4">
                     <h1><strong>Choose</strong> <span>Your Order</span></h1>
-                    <div class="food-card-group d-flex flex-wrap my-3">
+                    <div class="food-card-group d-flex flex-wrap my-4">
                         <div class="card d-flex align-items-center text-center">
                             <img src="http://tny.im/rGM" class="card-img-top" alt="Food image">
                             <div class="card-body">
@@ -70,6 +73,43 @@
                     </div>
                 </div>
             </div> <!-- end of menu -->
+            <div id="order"> <!-- start of order -->
+                <div class="py-3 pl-2 pr-2">
+                    <h1><strong>Your</strong> <span>Cart</span></h1>
+                    <div class="cart my-4">
+                        <table class="table">
+                            <thead class="thead-dark">
+                              <tr>
+                                <th scope="col">Name</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Total</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                              </tr>
+                              <tr>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                                <td>@fat</td>
+                              </tr>
+                              <tr>
+                                <td>Larry</td>
+                                <td>the Bird</td>
+                                <td>@twitter</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                    </div>
+                    <div class="sub-total my-4 d-flex align-items-center">
+                        <h4>Sub-total:</h4>
+                        <h5 class="ml-auto mr-3">100000</h5>
+                    </div>
+                </div>
+            </div> <!-- end of order -->
         </div>
     </div>
 
@@ -87,5 +127,3 @@
     <script src="../js/order_menu.js"></script>
   </body>
 </html>
-
-b4

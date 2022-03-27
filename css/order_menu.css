@@ -8,7 +8,7 @@ img {
 }
 
 ul li a {
-    font-size: 18px
+    font-size: 17px
 }
 
 .flex-col {
@@ -20,6 +20,7 @@ ul li a {
     height: 100vh;
     width: 140px;
     border-right: solid 0.2px rgba(0, 0, 0, 0.151);
+    padding: 0;
 }
 
 .navbar-brand {
@@ -31,8 +32,9 @@ ul li a {
     justify-content: flex-start;
 }
 
-.food-card-group.d-flex.flex-wrap {
-    justify-content: space-between;
+.food-card-group {
+    justify-content: flex-start;
+    gap: 20px;
 }
 
 .card {
@@ -62,5 +64,122 @@ ul li a {
 .card-text {
     margin: 10px 0;
     color: gray;
+}
+
+.nav-link, .navbar-brand {
+    font-weight: 500;
+}
+
+#nav {
+    flex-basis: 8%;
+}
+
+#menu {
+    flex-basis: 60%;
+}
+
+#order {
+    flex-basis: 32%;
+}
+
+.nav-btn {
+    display: none !important;
+    font-size: 30px;
+    cursor: pointer;
+    transform: rotate(0deg);
+    transition: transform 300ms;
+    margin: 25px 10px 0px 14px;
+}
+
+.nav-on {
+    left: 0 !important;
+}
+
+.nav-btn-on {
+    transform: rotate(90deg) !important;
+    z-index: 101;
+    transition: transform 300ms;
+}
+
+.nav-btn-container {
+    z-index: 101;
+    position: fixed;
+}
+
+.nav-btn-container-on {
+    transition: transform 300ms;
+    left: 26px;
+}
+
+.sidebar {
+    border-right: solid 0.2px rgba(0, 0, 0, 0.151);
+    background-color: white;
+    padding-top: 50px;
+}
+
+@media screen and (max-width: 1210px) {
+    #nav {
+        flex-basis: 9%;
+    }
+    
+    #menu {
+        flex-basis: 59%;
+    }
+    
+    #order {
+        flex-basis: 32%;
+    }
+    
+}
+
+@media screen and (max-width: 1100px) {
+    /* #nav .nav-container {
+        display: block;
+        background: #13282b;
+        background-image: none;
+        background-size: auto;
+        height: 100vh;
+        position: fixed;
+        top: 60px;
+        right: -185px;
+        width: 185px;
+        padding-top: 20px;
+        transition: right 300ms;
+        background-image: url(https://bgpattern.com/wp-content/uploads/2021/05/seemless-wave-pattern.png);
+        background-size: 60%;
+    } */
+
+    #menu {
+        flex-basis: 59%;
+        padding-left: 45px;
+    }
+    
+    #order {
+        flex-basis: 41%;
+    }
+
+    .navbar {
+        /* position: fixed;
+        left: -100px; */
+        width: 100px;
+        transition: left 300ms;
+        /* top: 65px; */
+        /* z-index: 100; */
+        /* background-color: white !important; */
+        border: none;
+    }
+
+    .sidebar {
+        position: fixed;
+        left: -100px;
+        width: 100px;
+        transition: left 300ms;
+        /* top: 65px; */
+        z-index: 100;
+    }
+
+    .nav-btn {
+        display: block !important;
+    }
 }
   
