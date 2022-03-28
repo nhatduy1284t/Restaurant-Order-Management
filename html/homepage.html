@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../css/homepage.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+        <div class="bg">
+          <div class="content">
+            <button type="button" class="btn btn-secondary btn-lg">
+              Menu
+            </button>
+
+            <button type="button" class="btn btn-secondary btn-lg" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Login</button>
+            </div>
+            <div class="modal-login modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content ">
+
+                    <div class="mask d-flex align-items-center h-100">
+                      <div class="container h-100">
+                        <div class="row d-flex justify-content-center align-items-center h-100">
+                          <div class="w-100">
+                            <div class="card" style="border-radius: 15px;">
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                              <div class="form-login-wrapper card-body p-5">
+                                <h2 class="text-uppercase text-center mb-5">Login</h2>
+                  
+                                <form class="form-login">
+                  
+                                  <div class="form-outline mb-4">
+                                    <input type="text" id="usernameLogin" name="username" class="form-control form-control-lg" />
+                                    <label class="form-label" for="usernameLogin">User Name</label>
+                                  </div>
+                  
+                  
+                                  <div class="form-outline mb-4">
+                                    <input type="password" id="passwordLogin" name="password" class="form-control form-control-lg" />
+                                    <label class="form-label" for="passwordLogin">Password</label>
+                                  </div>
+                  
+                  
+                                  <div class="d-flex justify-content-center">
+                                    <button type="submit" class="btn-login btn btn-success btn-block btn-lg gradient-custom-4 text-body">Login</button>
+                                  </div>
+                  
+                                  <p class="text-center text-muted mt-5 mb-0">Do not have an account? <a href="#!" class="btn-display-register-form fw-bold text-body"><u>Register here</u></a></p>
+
+                                </form>       
+                               
+                              </div>
+                              <div class="form-register-wrapper card-body p-5 d-none">
+                                <h2 class="text-uppercase text-center mb-5">Register</h2>
+                                <form class="form-register">
+                
+                                <div class="form-outline mb-4">
+                                  <input type="text" id="usernameRegister" name="username" class="form-control form-control-lg" />
+                                  <label class="form-label" for="usernameRegister">User Name</label>
+                                </div>
+                
+                
+                                <div class="form-outline mb-4">
+                                  <input type="password" id="passwordRegister" name="password" class="form-control form-control-lg" />
+                                  <label class="form-label" for="passwordRegister">Password</label>
+                                </div>
+                
+                                <div class="form-outline mb-4">
+                                  <input type="password" id="confirmPassword" name="confirmPassword" class="form-control form-control-lg" />
+                                  <p class="invalid-feedback mt-0">
+                                    Password is not correct
+                                  </p>
+                                  <label class="form-label" for="confirmPassword">Confirm your password</label>
+
+                                </div>       
+                
+                                <div class="d-flex justify-content-center">
+                                  <button type="button" class="btn-register btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</button>
+                                </div>
+                
+                                <p class="text-center text-muted mt-5 mb-0"><a href="#!" class="btn-go-back-login btn-display-register-form fw-bold text-body"><u>Go back to login</u></a></p>
+
+                            </form>  
+                          </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                </div>
+              </div>
+            </div>
+        </div>
+
+    
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.1/axios.min.js" integrity="sha512-bPh3uwgU5qEMipS/VOmRqynnMXGGSRv+72H/N260MQeXZIK4PG48401Bsby9Nq5P5fz7hy5UGNmC/W1Z51h2GQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script type="module" src="../js/homepage.js"></script>
+  </body>
+</html>

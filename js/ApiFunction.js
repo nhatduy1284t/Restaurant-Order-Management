@@ -1,8 +1,8 @@
-import { URL } from "./Settings.js";
+import { ACCOUNTS, RESTAURANT, URL } from "./Settings.js";
 
 export async function updateFoodListLocalStorageFromDatabase(token = "") {
     //Function to fill up localstorage with data from database
-    let result = await fetch(URL, {
+    let result = await fetch(`${URL}/${RESTAURANT}`, {
         headers: { Authorization: `${token}` },
     })
         .then((res) => res.json())
@@ -21,7 +21,7 @@ export function getFoodListFromLocalStorage() {
 
 export async function deleteFood(foodId) {
     try {
-        const res = await axios.delete(`${URL}/${foodId}`);
+        const res = await axios.delete(`${URL}/${RESTAURANT}/${foodId}`);
         console.log(res);
       } catch (error) {
         console.log('Error: ' + error);
@@ -30,7 +30,7 @@ export async function deleteFood(foodId) {
 
 export async function postFood(food) {
     try {
-        const res = await axios.post(`${URL}`,food);
+        const res = await axios.post(`${URL}/${RESTAURANT}`,food);
         console.log(res);
         alert('Add food successfully');
     } catch (error) {
@@ -40,10 +40,28 @@ export async function postFood(food) {
 
 export async function updateFood(food) {
     try {
-
-        const res = await axios.put(`${URL}/${food.id}`,food);
+        const res = await axios.put(`${URL}/${RESTAURANT}/${food.id}`,food);
         console.log(res);
         alert('Edit food successfully');
+    } catch (error) {
+        console.log('Error: ' + error);
+    }
+}
+
+export async function createUser(user) {
+    try {
+        const res = await axios.post(`${URL}/${ACCOUNTS}`,user);
+        console.log(res);
+        alert('Your account is created successfully!');
+    } catch (error) {
+        console.log('Error: ' + error);
+    }
+}
+
+export async function getAccounts() {
+    try {
+        const res = await axios.get(`${URL}/${ACCOUNTS}`);
+        return res;
     } catch (error) {
         console.log('Error: ' + error);
     }
