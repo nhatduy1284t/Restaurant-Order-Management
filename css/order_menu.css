@@ -8,7 +8,7 @@ img {
 }
 
 ul li a {
-    font-size: 17px
+    font-size: 18px
 }
 
 .flex-col {
@@ -18,7 +18,8 @@ ul li a {
 .navbar {
     position: sticky;
     height: 100vh;
-    width: 140px;
+    /* width: 140px; */
+    width: 100%;;
     border-right: solid 0.2px rgba(0, 0, 0, 0.151);
     padding: 0;
 }
@@ -34,7 +35,7 @@ ul li a {
 
 .food-card-group {
     justify-content: flex-start;
-    gap: 20px;
+    gap: 30px;
 }
 
 .card {
@@ -67,7 +68,7 @@ ul li a {
 }
 
 .nav-link, .navbar-brand {
-    font-weight: 500;
+    font-weight: 600;
 }
 
 #nav {
@@ -108,16 +109,18 @@ ul li a {
 
 .nav-btn-container-on {
     transition: transform 300ms;
-    left: 26px;
+    left: 37px;
 }
 
 .sidebar {
-    border-right: solid 0.2px rgba(0, 0, 0, 0.151);
     background-color: white;
-    padding-top: 50px;
 }
 
-@media screen and (max-width: 1210px) {
+.card-text::after {
+    content: "đ";
+}
+
+@media screen and (max-width: 1300px) {
     #nav {
         flex-basis: 9%;
     }
@@ -132,7 +135,7 @@ ul li a {
     
 }
 
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 1160px) {
     /* #nav .nav-container {
         display: block;
         background: #13282b;
@@ -161,7 +164,7 @@ ul li a {
     .navbar {
         /* position: fixed;
         left: -100px; */
-        width: 100px;
+        /* width: 100px; */
         transition: left 300ms;
         /* top: 65px; */
         /* z-index: 100; */
@@ -171,11 +174,13 @@ ul li a {
 
     .sidebar {
         position: fixed;
-        left: -100px;
-        width: 100px;
+        left: -120px;
+        width: 120px;
         transition: left 300ms;
         /* top: 65px; */
         z-index: 100;
+        border-right: solid 0.2px rgba(0, 0, 0, 0.151);
+        padding-top: 50px;
     }
 
     .nav-btn {
