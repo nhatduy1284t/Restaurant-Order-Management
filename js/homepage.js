@@ -1,4 +1,3 @@
-import Food from "../model/Food.js";
 import { createUser, getAccounts } from "./ApiFunction.js";
 
 console.log("homepage.js loaded");
@@ -29,7 +28,7 @@ btnCloseForm.addEventListener("click", () => {
     loginFormWrapper.classList.remove("d-none");
 });
 
-formRegister.addEventListener("click", async (e) => {
+formRegister.addEventListener("submit", async (e) => {
     e.preventDefault();
     let user = {};
     let arrInput = document.querySelectorAll(".form-register input");
@@ -44,7 +43,6 @@ formRegister.addEventListener("click", async (e) => {
     console.log(user);
     await createUser(user);
 });
-
 
 formLogin.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -65,7 +63,7 @@ formLogin.addEventListener("submit", async (e) => {
                 localStorage.setItem("user", JSON.stringify(account));
                 alert(`Chào ngài ${account.username} !`);
                 btnCloseForm.click();
-
+                document.querySelector(".btn-display-login").innerHTML = `Hello ${account.username}!`;
                 return;
             }
         }

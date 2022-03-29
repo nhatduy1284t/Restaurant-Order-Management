@@ -18,16 +18,15 @@
             crossorigin="anonymous"
             referrerpolicy="no-referrer"
         />
-        <link rel="stylesheet" href="../css/order_menu.css" />
+        <link rel="stylesheet" href="../css/order_menu.css">
         <link rel="stylesheet" href="../css/FoodManagement.css" />
     </head>
     <body>
-        <div class="d-flex pl-2">
+        <div class="d-flex pl-2 ">
             <div class="nav-btn-container"><i class="fa-solid fa-bars nav-btn"></i></div>
             <div id="nav" class="sidebar">
-                <nav id="" class="navbar navbar-expand-sm navbar-light bg-transparent flex-col">
-                    <!-- Start of nav -->
-                    <a class="navbar-brand mb-2" href="./homepage.html"><i class="fa-solid fa-burger ml-4"></i></a>
+                <nav id="" class="navbar navbar-expand-sm navbar-light bg-transparent flex-col"> <!-- Start of nav -->
+                    <a class="navbar-brand mb-2" href="#"><i class="fa-solid fa-burger ml-4"></i></a>
                     <!-- <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
                         aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -37,34 +36,26 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Dishes</a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item active">
                                 <a class="nav-link" href="#">New order</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Orders</a>
                             </li>
                             <li class="nav-item">
-                                <a
-                                    class="nav-link active"
-                                    data-toggle="collapse"
-                                    href="#collapseExample"
-                                    role="button"
-                                    aria-expanded="false"
-                                    aria-controls="collapseExample"
-                                >
+                                <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
                                     Management
-                                </a>
-                                <div class="collapse" id="collapseExample">
+                                  </a>
+                                  <div class="collapse" id="collapseExample">
                                     <div class="card card-body">
-                                        <a class="nav-link active" href="#">Foods</a>
+                                        <a class="nav-link" href="#">Foods</a>
                                         <a class="nav-link" href="#">Orders</a>
                                     </div>
-                                </div>
+                                  </div>
                             </li>
                         </ul>
                     </div>
-                </nav>
-                <!-- End of nav -->
+                </nav>  <!-- End of nav -->
             </div>
             <div class="main">
                 <div class="container">
@@ -79,6 +70,7 @@
                         >
                             <i class="fa fa-align-center mr-2"></i>Manage Categories
                         </button>
+    
                     </div>
                     <div class="collapse mt-2" id="categories">
                         <div class="text-right">
@@ -113,19 +105,7 @@
                                     >Drink</a
                                 >
                             </li>
-                            <li class="nav-item ml-auto" role="presentation">
-                                <a
-                                    class="nav-link"
-                                    id="pills-add-tab"
-                                    data-toggle="pill"
-                                    href="#pills-add"
-                                    role="tab"
-                                    aria-controls="pills-add"
-                                    aria-selected="false"
-                                >
-                                    <i class="fa fa-plus"></i>Add</a
-                                >
-                            </li>
+
                         </ul>
                         <div class="tab-content" id="pills-tabContent">
                             <div
@@ -157,31 +137,8 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                                <nav aria-label="Page navigation example">
-                                    <ul class="pagination">
-                                        <li class="page-item">
-                                            <a class="page-link" href="#" aria-label="Previous">
-                                                <span aria-hidden="true">&laquo;</span>
-                                            </a>
-                                        </li>
-                                        <div class="pages-dish page-item d-flex">
-      
-                                        </div>
-
-                                        <li class="page-item">
-                                            <a class="page-link" href="#" aria-label="Next">
-                                                <span aria-hidden="true">&raquo;</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </nav>
                             </div>
-                            <div
-                                class="tab-pane fade"
-                                id="pills-drink"
-                                role="tabpanel"
-                                aria-labelledby="pills-drink-tab"
-                            >
+                            <div class="tab-pane fade" id="pills-drink" role="tabpanel" aria-labelledby="pills-drink-tab">
                                 <table class="table-drink table">
                                     <thead class="thead-dark">
                                         <tr>
@@ -213,26 +170,8 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                                <nav aria-label="Page navigation example">
-                                    <ul class="pagination">
-                                        <li class="page-item">
-                                            <a class="page-link" href="#" aria-label="Previous">
-                                                <span aria-hidden="true">&laquo;</span>
-                                            </a>
-                                        </li>
-                                        <div class="pages-drink page-item d-flex">
-      
-                                        </div>
-
-                                        <li class="page-item">
-                                            <a class="page-link" href="#" aria-label="Next">
-                                                <span aria-hidden="true">&raquo;</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </nav>
                             </div>
-
+    
                             <div
                                 class="add-food-tab tab-pane fade"
                                 id="pills-add"
@@ -281,6 +220,8 @@
                                                             id="price"
                                                             name="price"
                                                             placeholder="ex: 10000"
+                  
+                                          
                                                             required=""
                                                         />
                                                         <div id="invalidGia" class="invalid-feedback"></div>
@@ -299,7 +240,7 @@
                                                         />
                                                     </div>
                                                 </div>
-
+    
                                                 <div class="mb-3">
                                                     <label for="description">Description</label>
                                                     <textarea
@@ -329,6 +270,7 @@
                 </div>
             </div>
         </div>
+
 
         <div class="modal-container">
             <!-- Modal for edit-->
@@ -449,6 +391,6 @@
             integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2"
             crossorigin="anonymous"
         ></script>
-        <script src="../js/FoodManagement.js" type="module"></script>
+        <script src="../js/OrderManagement.js" type="module"></script>
     </body>
 </html>

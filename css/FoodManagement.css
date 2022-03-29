@@ -7,7 +7,7 @@
 /*     color: rgb(225 29 72/var(--tw-text-opacity)); */
 .main {
     /* color: rgb(156, 163, 175); */
-    
+    width: 100%;
 }
 .main .container  {
     max-width: 1200px;
@@ -53,6 +53,6 @@
 }
 
 
-.data .add-food-tab .card-body  {
- 
+.add-food-card {
+    box-shadow: none;
 }

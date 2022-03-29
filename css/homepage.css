@@ -24,9 +24,30 @@ html {
     justify-items: center;
     height: 100%;
 }
-.content button {
+.content button,
+.content a {
     width: 50%;
 }
+.content a.link {
+    outline: white solid 0.5px;
+    padding: 6px 8px;
+    border-radius: 3px;
+    color: white;
+    font-weight: bold;
+    border: none;
+    margin: 0;
+    background: rgba(0, 0, 0, 0.2);
+    font-family: helvetica, arial, sans-serif;
+    font-size: 17pt;
+    cursor:pointer;
+    text-align: center;
+    text-decoration: none;
+}
+
+.content a.link:hover {
+    color:white;
+}
+
 button.btn.btn-secondary.btn-lg {
     outline: white solid 0.5px;
     padding: 6px 8px;
@@ -38,34 +59,34 @@ button.btn.btn-secondary.btn-lg {
     background: rgba(0, 0, 0, 0.2);
     font-family: helvetica, arial, sans-serif;
     font-size: 17pt;
+    
 }
+
 button.btn.btn-secondary.btn-lg :hover {
     background: black;
-    color: white;
+
 }
 
 .gradient-custom-3 {
-
     background: linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5));
 }
 .gradient-custom-4 {
-
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     background: linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1));
 }
 
 .modal-login .modal-content {
-  border-radius: 50%;
+    border-radius: 50%;
 }
 
 .modal-login .close {
-  position: absolute;
-  right: 10px;
-  font-size: 40px;
-  font-weight: 400;
-  outline:none;
+    position: absolute;
+    right: 10px;
+    font-size: 40px;
+    font-weight: 400;
+    outline: none;
 }
 
 .modal-login button {
-    border:none;
+    border: none;
 }
