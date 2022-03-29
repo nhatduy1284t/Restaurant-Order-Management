@@ -52,6 +52,7 @@ checkOutBtn.addEventListener("click", () => {
 window.resetCart =() => {
     table.innerHTML = "";
     document.querySelector(".sub-total h5").textContent = 0;
+    orderFoodList = [];
 }
 
 //Function
