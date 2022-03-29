@@ -10,6 +10,7 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
   />
     <!-- Bootstrap CSS -->
+    
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <!-- animate.styles -->
@@ -24,22 +25,27 @@
             <div class="nav-btn-container"><i class="fa-solid fa-bars nav-btn"></i></div>
             <div id="nav" class="sidebar">
                 <nav id="" class="navbar navbar-expand-sm navbar-light bg-transparent flex-col"> <!-- Start of nav -->
-                    <a class="navbar-brand mb-2" href="#"><i class="fa-solid fa-burger ml-4"></i></a>
+                    <a class="navbar-brand mb-2" href="./homepage.html"><i class="fa-solid fa-burger ml-4"></i></a>
                     <!-- <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
                         aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button> -->
                     <div class="collapse navbar-collapse" id="collapsibleNavId">
                         <ul class="navbar-nav mr-auto mt-2 mt-lg-0 d-flex flex-col align-items-center">
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Dishes</a>
-                            </li>
                             <li class="nav-item active">
                                 <a class="nav-link" href="#">New order</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Orders</a>
-                            </li>
+                              <a class="nav-link" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                             Management
+                              </a>
+                             <div class="collapse" id="collapseExample">
+                                 <div class="card card-body">
+                                     <a class="nav-link" href="./FoodManagement.html">Foods</a>
+                                     <a class="nav-link" href="./OrderManagement.html">Orders</a>
+                                 </div>
+                             </div>
+                         </li>
                         </ul>
                     </div>
                 </nav>  <!-- End of nav -->
@@ -53,27 +59,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">Chicken burger</h5>
                                 <p class="card-text">50.000đ</p>
-                            </div>
-                        </div>
-                        <div class="card d-flex align-items-center text-center">
-                            <img src="http://tny.im/rGM" class="card-img-top" alt="Food image">
-                            <div class="card-body">
-                                <h5 class="card-title">Chicken burger</h5>
-                                <p class="card-text">50.000đ</p>
-                            </div>
-                        </div>
-                        <div class="card d-flex align-items-center text-center">
-                            <img src="http://tny.im/rGM" class="card-img-top" alt="Food image">
-                            <div class="card-body">
-                                <h5 class="card-title">Chicken burger</h5>
-                                <p class="card-text">50.000đ</p>
-                            </div>
-                        </div>
-                        <div class="card d-flex align-items-center text-center">
-                            <img src="http://tny.im/rGM" class="card-img-top" alt="Food image">
-                            <div class="card-body">
-                                <h5 class="card-title">Chicken burger</h5>
-                                <p class="card-text">50.000đ</p>
+                                <button type="button" class="btn btn-secondary"><i class="fa-solid fa-cart-shopping"></i></button>  
                             </div>
                         </div>
                     </div>
@@ -131,5 +117,6 @@
 
     <!-- My JavaScript -->
     <script src="../js/order_menu.js"></script>
+    <script src="../js/General.js"></script>
   </body>
 </html>

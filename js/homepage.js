@@ -2,6 +2,11 @@ import { createUser, getAccounts } from "./ApiFunction.js";
 
 console.log("homepage.js loaded");
 
+if(localStorage.getItem('user')) {
+    let user = JSON.parse(localStorage.getItem('user'));
+    document.querySelector(".btn-display-login").innerHTML = `Hello ${user.username}!`;
+}
+
 let btnDisplayRegisterForm = document.querySelector(".btn-display-register-form");
 let registerFormWrapper = document.querySelector(".form-register-wrapper");
 let loginFormWrapper = document.querySelector(".form-login-wrapper");

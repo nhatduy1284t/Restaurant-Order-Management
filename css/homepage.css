@@ -3,7 +3,9 @@ html {
     height: 100%;
     margin: 0;
 }
-
+body div{
+    display: block;
+}
 .bg {
     /* The image used */
     background-image: url("../images/1.jpg");
@@ -89,4 +91,26 @@ button.btn.btn-secondary.btn-lg :hover {
 
 .modal-login button {
     border: none;
+/* }
+    border:none; */
+}
+nav {
+    position: absolute;
+    top: 0px;
+    right: 0;
+}
+
+nav ul li {
+    list-style: none;
+    display: inline-block;
+    padding: 8px 15px;
+    margin: 0 5px;
+    transition: background 300ms;
+}
+nav ul li a {
+    text-decoration: none;
+    color: rgb(207, 31, 31);
+}
+li.active {
+    background: red;
 }
