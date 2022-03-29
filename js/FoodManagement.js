@@ -130,7 +130,7 @@ let fillDataTable = (foodList) => {
         <tr>
             <th scope="row">${index + 1}</th>
             <td>${dish.name}</td>
-            <td>$${dish.price}</td>
+            <td>${dish.price}đ</td>
             <td><img src="${dish.image}" alt=""></td>
             <td>
             <button class="btn btn-warning" data-toggle="modal" data-target="#editModal"
@@ -153,7 +153,7 @@ let fillDataTable = (foodList) => {
         <tr>
             <th scope="row">${index + 1}</th>
             <td>${drink.name}</td>
-            <td>$${drink.price}</td>
+            <td>${drink.price}đ</td>
             <td><img src="${drink.image}" alt=""></td>
             <td>
                 <button class="btn btn-warning" data-toggle="modal" data-target="#editModal"
