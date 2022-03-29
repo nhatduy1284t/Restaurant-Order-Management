@@ -78,6 +78,8 @@ ul li a {
 
 #menu {
     flex-basis: 60%;
+    height: 100vh;
+    overflow: scroll;
 }
 
 #order {
@@ -121,7 +123,11 @@ ul li a {
     content: "đ";
 }
 
-@media screen and (max-width: 1300px) {
+.checkout {
+    font-size: 1.2em;
+}
+
+@media screen and (max-width: 1375px) {
     #nav {
         flex-basis: 9%;
     }
@@ -136,7 +142,7 @@ ul li a {
     
 }
 
-@media screen and (max-width: 1160px) {
+@media screen and (max-width: 1220px) {
     /* #nav .nav-container {
         display: block;
         background: #13282b;
