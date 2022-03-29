@@ -5,6 +5,8 @@ let navbtnContainer = navBtn.parentElement;
 let nav = document.querySelector("#nav");
 let sideBar = document.querySelector(".sidebar");
 let foodGroup = document.querySelector(".food-card-group");
+let checkOutBtn = document.querySelector(".checkout");
+let table = document.querySelector(".cart table tbody");
 
 let foodList = [];
 let orderFoodList = [];
@@ -28,15 +30,32 @@ navBtn.addEventListener('click', () => {
     navbtnContainer.classList.toggle("nav-btn-container-on");
 })
 
-// foodGroup.addEventListener("mouseover", (e) => {
-//     console.log(e.target);
-//     // card.classList.toggle("animate__pulse");
-// })
+checkOutBtn.addEventListener("click", () => {
+    let orderDetail = [];
+    
+    orderFoodList.forEach(el => {
+        let f_id = el.food_id;
+        let food = {
+            id: f_id,
+            name: foodList[f_id].name,
+            single_price: foodList[f_id].price,
+            quantity: Number(el.quantity)
+        }
+        orderDetail.push(food);
+    })
+
+    console.log(orderDetail);
+    
+    resetCart();
+})
+
+window.resetCart =() => {
+    table.innerHTML = "";
+    document.querySelector(".sub-total h5").textContent = 0;
+    orderFoodList = [];
+}
 
 //Function
-window.myfunction = () => {
-    console.log('haha')
-}
 async function loadData() {
     let data = await fetch("https://testapi.io/api/nhatduy1284t/resource/restaurant")
                     .then(res => res.json())
@@ -57,7 +76,7 @@ async function loadData() {
 
         let food = {
             name: el.name,
-            price: parseInt(el.price)
+            price: Number(el.price)
         }
         foodList.push(food);
         num++;
@@ -91,8 +110,6 @@ function addCart(num) {
         orderFoodList.push(orderFood);
     }
 
-
-
     console.log(orderFoodList);
 
     renderOrder();
@@ -102,7 +119,6 @@ function addCart(num) {
 //call renderOrder()
 
 function renderOrder() {
-    let table = document.querySelector(".cart table tbody");
     let output = "";
     let total = 0;
     orderFoodList.forEach(el => {
@@ -114,7 +130,7 @@ function renderOrder() {
                         <td>${el.quantity * foodList[n].price}</td>
                     </tr>`;
 
-        total += el.quantity * foodList[n].price;
+        total += Number(el.quantity) * foodList[n].price;
     })
 
     table.innerHTML = output;
