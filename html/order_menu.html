@@ -1,108 +1,142 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Restaurant Management</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
-    <!-- Bootstrap CSS -->
-    
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <head>
+        <title>Restaurant Management</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+        <!-- Bootstrap CSS -->
 
-    <!-- animate.styles -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+            crossorigin="anonymous"
+        />
 
-    <!-- My CSS -->
-    <link rel="stylesheet" href="../css/order_menu.css">
-  </head>
-  <body class="animate__animated  animate__bounceInLeft">
-    <div id="root">
-        <div class="d-flex pl-2 ">
-            <div class="nav-btn-container"><i class="fa-solid fa-bars nav-btn"></i></div>
-            <div id="nav" class="sidebar">
-                <nav id="" class="navbar navbar-expand-sm navbar-light bg-transparent flex-col"> <!-- Start of nav -->
-                    <a class="navbar-brand mb-2" href="./homepage.html"><i class="fa-solid fa-burger ml-4"></i></a>
-                    <!-- <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+        <!-- animate.styles -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+        <!-- My CSS -->
+        <link rel="stylesheet" href="../css/order_menu.css" />
+    </head>
+    <body class="animate__animated animate__bounceInLeft">
+        <div id="root">
+            <div class="d-flex pl-2">
+                <div class="nav-btn-container"><i class="fa-solid fa-bars nav-btn"></i></div>
+                <div id="nav" class="sidebar">
+                    <nav id="" class="navbar navbar-expand-sm navbar-light bg-transparent flex-col">
+                        <!-- Start of nav -->
+                        <a class="navbar-brand mb-2" href="./homepage.html"><i class="fa-solid fa-burger ml-4"></i></a>
+                        <!-- <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
                         aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button> -->
-                    <div class="collapse navbar-collapse" id="collapsibleNavId">
-                        <ul class="navbar-nav mr-auto mt-2 mt-lg-0 d-flex flex-col align-items-center">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="#">New order</a>
-                            </li>
-                            <li class="nav-item">
-                              <a class="nav-link" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                             Management
-                              </a>
-                             <div class="collapse" id="collapseExample">
-                                 <div class="card card-body">
-                                     <a class="nav-link" href="./FoodManagement.html">Foods</a>
-                                     <a class="nav-link" href="./OrderManagement.html">Orders</a>
-                                 </div>
-                             </div>
-                         </li>
-                        </ul>
-                    </div>
-                </nav>  <!-- End of nav -->
-            </div>
-            <div id="menu"> <!-- start of menu -->
-                <div class="py-3 pl-5 pr-4">
-                    <h1><span>Choose Your Order</span></h1>
-                    <div class="food-card-group d-flex flex-wrap my-4">
-                        <div class="card d-flex align-items-center text-center">
-                            <img src="http://tny.im/rGM" class="card-img-top" alt="Food image">
-                            <div class="card-body">
-                                <h5 class="card-title">Chicken burger</h5>
-                                <p class="card-text">50.000đ</p>
-                                <button type="button" class="btn btn-secondary"><i class="fa-solid fa-cart-shopping"></i></button>  
+                        <div class="collapse navbar-collapse" id="collapsibleNavId">
+                            <ul class="navbar-nav mr-auto mt-2 mt-lg-0 d-flex flex-col align-items-center">
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="#">New order</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a
+                                        class="nav-link"
+                                        data-toggle="collapse"
+                                        href="#collapseExample"
+                                        role="button"
+                                        aria-expanded="false"
+                                        aria-controls="collapseExample"
+                                    >
+                                        Management
+                                    </a>
+                                    <div class="collapse" id="collapseExample">
+                                        <div class="card card-body">
+                                            <a class="nav-link" href="./FoodManagement.html">Foods</a>
+                                            <a class="nav-link" href="./OrderManagement.html">Orders</a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                    <!-- End of nav -->
+                </div>
+                <div id="menu">
+                    <!-- start of menu -->
+                    <div class="py-3 pl-5 pr-4">
+                        <h1><span>Choose Your Order</span></h1>
+                        <div class="food-card-group d-flex flex-wrap my-4">
+                            <div class="card d-flex align-items-center text-center">
+                                <img src="http://tny.im/rGM" class="card-img-top" alt="Food image" />
+                                <div class="card-body">
+                                    <h5 class="card-title">Chicken burger</h5>
+                                    <p class="card-text">50.000đ</p>
+                                    <button type="button" class="btn btn-secondary">
+                                        <i class="fa-solid fa-cart-shopping"></i>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div> <!-- end of menu -->
-            <div id="order"> <!-- start of order -->
-                <div class="py-3 pl-2 pr-2">
-                    <h1><span>Your Cart</span></h1>
-                    <div class="cart my-4">
-                        <table class="table">
-                            <thead class="thead-dark">
-                              <tr>
-                                <th scope="col">Name</th>
-                                <th scope="col">Quantity</th>
-                                <th scope="col">Total</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                            </tbody>
-                          </table>
+                <!-- end of menu -->
+                <div id="order">
+                    <!-- start of order -->
+                    <div class="py-3 pl-2 pr-2">
+                        <h1><span>Your Cart</span></h1>
+                        <div class="cart my-4">
+                            <table class="table">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Quantity</th>
+                                        <th scope="col">Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                        <div class="sub-total my-4 d-flex align-items-center">
+                            <h4>Sub-total:</h4>
+                            <h5 class="ml-auto mr-3">0</h5>
+                        </div>
+                        <div class="text-right pr-5">
+                            <button type="button" class="checkout btn btn-secondary px-4 rounded">Checkout</button>
+                        </div>
                     </div>
-                    <div class="sub-total my-4 d-flex align-items-center">
-                        <h4>Sub-total:</h4>
-                        <h5 class="ml-auto mr-3">0</h5>
-                    </div>
-                    <div class="text-right pr-5"><button type="button" class="checkout btn btn-secondary px-4 rounded">Checkout</button></div>
                 </div>
-            </div> <!-- end of order -->
+                <!-- end of order -->
+            </div>
         </div>
-    </div>
 
-      
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script
+            src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"
+        ></script>
 
-    <!-- Font-awesome -->
-    <script src="https://kit.fontawesome.com/0710300141.js" crossorigin="anonymous"></script>
-
-    <!-- My JavaScript -->
-    <script src="../js/order_menu.js"></script>
-    <script src="../js/General.js"></script>
-  </body>
+        <!-- Font-awesome -->
+        <script src="https://kit.fontawesome.com/0710300141.js" crossorigin="anonymous"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.1/axios.min.js"
+            integrity="sha512-bPh3uwgU5qEMipS/VOmRqynnMXGGSRv+72H/N260MQeXZIK4PG48401Bsby9Nq5P5fz7hy5UGNmC/W1Z51h2GQ=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        ></script>
+        <!-- My JavaScript -->
+        <script src="../js/order_menu.js" type="module"></script>
+        <script src="../js/General.js"></script>
+    </body>
 </html>

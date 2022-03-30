@@ -1,4 +1,4 @@
-import { ACCOUNTS, RESTAURANT, URL } from "./Settings.js";
+import { ACCOUNTS, ORDERS, RESTAURANT, URL } from "./Settings.js";
 
 export async function updateFoodListLocalStorageFromDatabase(token = "") {
     //Function to fill up localstorage with data from database
@@ -64,5 +64,36 @@ export async function getAccounts() {
         return res;
     } catch (error) {
         console.log('Error: ' + error);
+    }
+}
+
+export async function createOrder(order) {
+    try {
+        const res = await axios.post(`${URL}/${ORDERS}`,order);
+        console.log(res);
+        alert('Your order is created successfully!');
+    } catch (error) {
+        console.log('Error: ' + error);
+    }
+}
+
+export async function getOrders() {
+    try {
+        const res = await axios.get(`${URL}/${ORDERS}`);
+        localStorage.setItem('orders',JSON.stringify( res.data.data));
+        console.log(res)
+        return res;
+    } catch (error) {
+        console.log('Error: ' + error);
+    }
+} 
+
+export async function editOrder(order) {
+    try {
+        const res = await axios.put(`${URL}/${ORDERS}/${order.id}`,order);
+        console.log(res);
+        alert('Edit order successfully!');
+    } catch (error) {
+        console.log('Error: ' + error.response);
     }
 }

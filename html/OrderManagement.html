@@ -77,88 +77,20 @@
                         role="tabpanel"
                         aria-labelledby="pills-dish-tab"
                     >
-                        <table class="table-dish table">
+                        <table class="table-order table">
                             <thead class="thead-dark">
                                 <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Table</th>
+                                    <th scope="col">Order ID</th>
+                                    <th scope="col">User</th>
                                     <th scope="col">Price</th>
                                     <th scope="col">Handle</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Cheese Pizza</td>
-                                    <td>$4000</td>
-                                    <td>
-                                        <button
-                                            class="btn btn-warning"
-                                            data-toggle="modal"
-                                            data-target=".bd-example-modal-xl"
-                                        >
-                                            <i class="fa fa-edit"></i>
-                                        </button>
-                                        <button class="btn btn-success" onclick="handleDeleteFoodEvent(48)">
-                                            <i class="fa fa-check"></i>
-                                        </button>
-                                    </td>
-                                </tr>
 
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Mèo Simmy</td>
-                                    <td>$69</td>
-                                    <td>
-                                        <button
-                                            class="btn btn-warning"
-                                            data-toggle="modal"
-                                            data-target=".bd-example-modal-xl"
-                                        >
-                                            <i class="fa fa-edit"></i>
-                                        </button>
-                                        <button class="btn btn-success" onclick="handleDeleteFoodEvent(48)">
-                                            <i class="fa fa-check"></i>
-                                        </button>
-                                    </td>
-                                </tr>
 
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Fried Chicken</td>
-                                    <td>$5000</td>
-                                    <td>
-                                        <button
-                                            class="btn btn-warning"
-                                            data-toggle="modal"
-                                            data-target=".bd-example-modal-xl"
-                                        >
-                                            <i class="fa fa-edit"></i>
-                                        </button>
-                                        <button class="btn btn-success" onclick="handleDeleteFoodEvent(48)">
-                                            <i class="fa fa-check"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <th scope="row">4</th>
-                                    <td>Popcorn</td>
-                                    <td>$2000</td>
-                                    <td>
-                                        <button
-                                            class="btn btn-warning"
-                                            data-toggle="modal"
-                                            data-target=".bd-example-modal-xl"
-                                        >
-                                            <i class="fa fa-edit"></i>
-                                        </button>
-                                        <button class="btn btn-success" onclick="handleDeleteFoodEvent(48)">
-                                            <i class="fa fa-check"></i>
-                                        </button>
-                                    </td>
-                                </tr>
                             </tbody>
+                            
                         </table>
                     </div>
                     <div class="tab-pane fade" id="pills-drink" role="tabpanel" aria-labelledby="pills-drink-tab">
@@ -239,7 +171,7 @@
             <!-- Modal for edit-->
             <!-- Popup edit -->
             <div
-                class="modal fade bd-example-modal-xl"
+                class="modal-edit-order modal fade bd-example-modal-xl"
                 tabindex="-1"
                 role="dialog"
                 aria-labelledby="myExtraLargeModalLabel"
@@ -300,11 +232,12 @@
                             <div class="py-3 pl-2 pr-2">
                                 <h1><strong>Your</strong> <span>Cart</span></h1>
                                 <div class="cart my-4">
-                                    <table class="table">
+                                    <table class="table-cart table">
                                         <thead class="thead-dark">
                                             <tr>
                                                 <th scope="col">Name</th>
                                                 <th scope="col">Quantity</th>
+                                                <th scope="col">Price</th>
                                                 <th scope="col">Total</th>
                                             </tr>
                                         </thead>
@@ -327,48 +260,16 @@
                                                 </td>
                                                 <td>0</td>
                                             </tr>
-                                            <tr>
-                                                <td>Jacob</td>
-                                                <td>
-                                                    <div
-                                                        class="btn-group product-count"
-                                                        role="group"
-                                                        aria-label="Basic example"
-                                                    >
-                                                        <button type="button" class="btn btn-secondary minus">-</button>
-                                                        <button type="button" class="btn btn-light counter">0</button>
-                                                        <button type="button" class="btn btn-secondary plus">+</button>
-                                                        <button type="button" class="btn btn-danger">
-                                                            <i class="fa-solid fa fa-times"></i>
-                                                        </button>
-                                                    </div>
-                                                </td>
-                                                <td>0</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Larry</td>
-                                                <td>
-                                                    <div
-                                                        class="btn-group product-count"
-                                                        role="group"
-                                                        aria-label="Basic example"
-                                                    >
-                                                        <button type="button" class="btn btn-secondary minus">-</button>
-                                                        <button type="button" class="btn btn-light counter">0</button>
-                                                        <button type="button" class="btn btn-secondary plus">+</button>
-                                                        <button type="button" class="btn btn-danger">
-                                                            <i class="fa-solid fa fa-times"></i>
-                                                        </button>
-                                                    </div>
-                                                </td>
-                                                <td>0</td>
-                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
                                 <div class="sub-total my-4 d-flex align-items-center">
                                     <h4>Sub-total:</h4>
-                                    <h5 class="ml-auto mr-3">100000</h5>
+                                    <h5 class="total-price ml-auto mr-3">100000</h5>
+                                </div>
+                                <div class="d-flex justify-content-end">
+                                    <button class="btn btn-secondary " data-dismiss="modal">Cancel</button>
+                                    <button class="btn-save-order-edit btn btn-success ml-2">Save</button>
                                 </div>
                             </div>
                         </div>

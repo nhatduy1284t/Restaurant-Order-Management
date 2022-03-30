@@ -1,3 +1,6 @@
+import Order from "../model/Order.js";
+import { createOrder } from "./ApiFunction.js";
+
 console.log("Javascript loaded");
 
 let navBtn = document.querySelector(".nav-btn");
@@ -36,7 +39,7 @@ checkOutBtn.addEventListener("click", () => {
     orderFoodList.forEach(el => {
         let f_id = el.food_id;
         let food = {
-            id: f_id,
+            id: el.id,
             name: foodList[f_id].name,
             single_price: foodList[f_id].price,
             quantity: Number(el.quantity)
@@ -44,8 +47,15 @@ checkOutBtn.addEventListener("click", () => {
         orderDetail.push(food);
     })
 
-    console.log(orderDetail);
-    
+
+    /**/
+    let order  = new Order;
+    let user =JSON.parse(localStorage.getItem('user'));
+    order.foodList = JSON.stringify(orderDetail);
+    order.userId = String(user.id);
+    order.userName = String(user.username);
+    createOrder(order)
+    /**/
     resetCart();
 })
 
@@ -69,24 +79,26 @@ async function loadData() {
                             <div class="card-body" data-id=${num}>
                                 <h5 class="card-title">${el.name}</h5>
                                 <p class="card-text">${el.price}</p>
-                                <button type="button" class="btn btn-secondary px-5 rounded-pill" onclick="addCart(${num})"><i class="fa-solid fa-cart-shopping"></i></button>
+                                <button type="button" class="btn btn-secondary px-5 rounded-pill" onclick="addCart(${num},${el.id})"><i class="fa-solid fa-cart-shopping"></i></button>
                             </div>
                         </div>`;
         output += foodCard;
 
         let food = {
             name: el.name,
-            price: Number(el.price)
+            price: Number(el.price),
+            id:el.id
         }
+
         foodList.push(food);
         num++;
     })
 
-
     foodGroup.innerHTML = output;
 }
 
-function addCart(num) {
+window.addCart = (num,idOfFood)=> {
+    
     console.log(`num: ${num}\tname: ${foodList[num].name}\tprice: ${foodList[num].price}`);
     // let table = document.querySelector(".card table tbody");
     // table.innerHTML +=
@@ -104,7 +116,8 @@ function addCart(num) {
         let name = foodList[num].name;
         let orderFood = {
             food_id: num,
-            quantity: 1
+            quantity: 1,
+            id:idOfFood
         }
     
         orderFoodList.push(orderFood);
