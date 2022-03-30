@@ -150,7 +150,7 @@ window.fillDataTableDishWithPage = (page = 0) => {
         <tr>
             <th scope="row">${startIndex + index + 1}</th>
             <td>${dish.name}</td>
-            <td>$${dish.price}</td>
+            <td>${dish.price}đ</td>
             <td><img src="${dish.image}" alt=""></td>
             <td>
             <button class="btn btn-warning" data-toggle="modal" data-target="#editModal"
@@ -180,7 +180,7 @@ window.fillDataTableDrinkWithPage = (page) => {
         <tr>
             <th scope="row">${startIndex + index + 1}</th>
             <td>${drink.name}</td>
-            <td>$${drink.price}</td>
+            <td>${drink.price}đ</td>
             <td><img src="${drink.image}" alt=""></td>
             <td>
             <button class="btn btn-warning" data-toggle="modal" data-target="#editModal"
