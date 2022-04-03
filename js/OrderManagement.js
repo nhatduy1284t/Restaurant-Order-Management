@@ -97,6 +97,7 @@ window.handleCompleteOrder = async (orderId) => {
   await updateOrder(orderCompleted);
   await getOrders();
   fillDataTableOrder();
+  
 };
 
 let renderMenu = () => {
@@ -169,7 +170,8 @@ let fillDataTableOrder = () => {
                                     <td>${(() => {
                                       let timeCreated = order.createdAt;
                                       let date = new Date(timeCreated);
-                                      return `${date.getDay()}-${date.getMonth()} | ${date.getHours()}:${date.getMinutes()}`;
+                                      console.log(date.getMonth())
+                                      return `${date.getDate()}-${date.getMonth() + 1} | ${date.getHours()}:${date.getMinutes()}`;
                                     })()}</td>
                                     <td>${order.userName}</td>
                                     <td>${calculateTotalPrice(foodListOrder)}đ</td>
@@ -191,7 +193,12 @@ let fillDataTableOrder = () => {
                                 
         `;
   });
+
+  //Jquery popup
   tbodyOrder.innerHTML = content;
+  $(function () {
+    $('[data-toggle="popover"]').popover();
+  });
 };
 
 let calculateTotalPrice = (foodListOrder) => {
@@ -210,7 +217,5 @@ let calculateTotalPrice = (foodListOrder) => {
   fillDataTableOrder();
 
   //Jquery for button complete order popover
-  $(function () {
-    $('[data-toggle="popover"]').popover();
-  });
+
 })();

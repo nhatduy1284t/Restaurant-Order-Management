@@ -38,13 +38,12 @@ let renderMyOrders = async () => {
         let foodListOrder = JSON.parse(order.foodList);
         let total = calculateTotalPriceOfOrder(foodListOrder);
         let dateOrder = new Date(order.createdAt);
-        console.log(dateOrder)
         content +=
         `
         <tr>
             <td scope="row">${order.id}</td>
             <td>${total}</td>
-            <td>${dateOrder.getDay()}-${dateOrder.getMonth()} | ${dateOrder.getHours()}:${dateOrder.getMinutes()}</td>
+            <td>${dateOrder.getDate()}-${dateOrder.getMonth() +1} | ${dateOrder.getHours()}:${dateOrder.getMinutes()}</td>
         </tr>
         `
         
