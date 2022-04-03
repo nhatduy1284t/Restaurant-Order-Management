@@ -24,14 +24,14 @@ loadData();
 // foodGroup.addEventListener("click", e => console.log(e.target))
 
 //Event
-navBtn.addEventListener('click', () => {
-    console.log("nav hamburger clicked");
-    //nav.classList.toggle("nav-on");
-    sideBar.classList.toggle("nav-on");
-    // mainWrapper.classList.toggle("wrapper-off");
-    navBtn.classList.toggle("nav-btn-on");
-    navbtnContainer.classList.toggle("nav-btn-container-on");
-})
+// navBtn.addEventListener('click', () => {
+//     console.log("nav hamburger clicked");
+//     //nav.classList.toggle("nav-on");
+//     sideBar.classList.toggle("nav-on");
+//     // mainWrapper.classList.toggle("wrapper-off");
+//     navBtn.classList.toggle("nav-btn-on");
+//     navbtnContainer.classList.toggle("nav-btn-container-on");
+// })
 
 checkOutBtn.addEventListener("click", () => {
     let orderDetail = [];
@@ -54,6 +54,7 @@ checkOutBtn.addEventListener("click", () => {
     order.foodList = JSON.stringify(orderDetail);
     order.userId = String(user.id);
     order.userName = String(user.username);
+    order.status="0";
     createOrder(order)
     /**/
     resetCart();

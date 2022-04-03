@@ -81,7 +81,6 @@ export async function getOrders() {
     try {
         const res = await axios.get(`${URL}/${ORDERS}`);
         localStorage.setItem('orders',JSON.stringify( res.data.data));
-        console.log(res)
         return res;
     } catch (error) {
         console.log('Error: ' + error);
@@ -92,8 +91,19 @@ export async function editOrder(order) {
     try {
         const res = await axios.put(`${URL}/${ORDERS}/${order.id}`,order);
         console.log(res);
-        alert('Edit order successfully!');
     } catch (error) {
         console.log('Error: ' + error.response);
     }
 }
+
+export async function updateOrder(order) {
+    try {
+        const res = await axios.put(`${URL}/${ORDERS}/${order.id}`,order);
+        console.log(res);
+    } catch (error) {
+        console.log('Error: ' + error.response);
+    }
+}
+
+
+
