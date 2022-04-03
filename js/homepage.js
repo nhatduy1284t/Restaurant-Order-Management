@@ -50,6 +50,7 @@ formRegister.addEventListener('submit', async (e) => {
     return;
   }
  
+  
   for (const account of accounts) {
       console.log(account)
       if(account.username == user.username) {
@@ -58,7 +59,7 @@ formRegister.addEventListener('submit', async (e) => {
       }
   }
 
-  console.log(user);
+  accounts.push(user);
   await createUser(user);
 });
 

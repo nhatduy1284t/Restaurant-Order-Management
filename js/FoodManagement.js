@@ -229,5 +229,5 @@ let isButtonOn = (btn) => {
 
 //run here
 
-updateFoodListLocalStorageFromDatabase(TOKEN); //Run this function to the get latest data from database
+await updateFoodListLocalStorageFromDatabase(); //Run this function to the get latest data from database
 fillDataTable(getFoodListFromLocalStorage());

@@ -1,4 +1,4 @@
-import { editOrder, getFoodListFromLocalStorage, getOrders, updateOrder } from './ApiFunction.js';
+import { editOrder, getFoodListFromLocalStorage, getOrders, updateFoodListLocalStorageFromDatabase, updateOrder } from './ApiFunction.js';
 
 let btnSaveOrderEdit = document.querySelector('.btn-save-order-edit');
 
@@ -212,6 +212,7 @@ let calculateTotalPrice = (foodListOrder) => {
 
 //Run here
 (async () => {
+  await updateFoodListLocalStorageFromDatabase();
   await getOrders();
   renderMenu();
   fillDataTableOrder();
