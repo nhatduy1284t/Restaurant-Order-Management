@@ -4,3 +4,34 @@
 .buton.text-center {
     width: 80%;
 }
+
+.modal-edit-order #menu {
+    overflow:initial;
+    overflow-y: scroll;
+}
+
+.data .table-order .btn-check-order {
+    position: relative;
+}
+
+.data {
+    padding:0px 10px;
+}
+
+@media screen and (max-width:1220px) {
+    .data {
+
+        padding-top: 50px;
+        margin-top: 10px;
+    }
+    .nav-btn-container i{
+        margin: 0;
+        margin-top: 15px;
+        margin-left: 10px;
+
+    }
+
+    .heading {
+        padding-left: 10px;
+    }
+}

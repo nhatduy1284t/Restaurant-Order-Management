@@ -129,6 +129,14 @@ ul li a {
     font-size: 1.2em;
 }
 
+#menu .card-body {
+    display: flex;
+    flex-direction: column;
+  }
+  #menu .card-body button {
+    margin-top: auto;
+  }
+
 @media screen and (max-width: 1375px) {
     #nav {
         flex-basis: 9%;
@@ -194,6 +202,16 @@ ul li a {
 
     .nav-btn {
         display: block !important;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    #collapsibleNavId.collapse:not(.show){
+        display: flex !important;
+    }
+
+    #collapsibleNavId.navbar-collapse {
+        flex-basis: auto;
     }
 }
   

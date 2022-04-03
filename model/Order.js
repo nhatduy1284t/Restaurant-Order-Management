@@ -3,4 +3,5 @@ export default class Order {
     userId="";
     userName="";
     foodList=[];
+    status="";
 }

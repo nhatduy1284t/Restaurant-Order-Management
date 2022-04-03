@@ -1,102 +1,111 @@
-import { editOrder, getFoodListFromLocalStorage, getOrders } from "./ApiFunction.js";
+import { editOrder, getFoodListFromLocalStorage, getOrders, updateOrder } from './ApiFunction.js';
 
 let btnSaveOrderEdit = document.querySelector('.btn-save-order-edit');
 
 //Events listener
 btnSaveOrderEdit.addEventListener('click', async () => {
-    let orderEdit = JSON.parse(localStorage.getItem('orderEdit'));
-    console.log(orderEdit);
-    await editOrder(orderEdit);
-    await getOrders();
-    fillDataTableOrder();
-})
+  let orderEdit = JSON.parse(localStorage.getItem('orderEdit'));
+  console.log(orderEdit);
+  await editOrder(orderEdit);
+  await getOrders();
+  fillDataTableOrder();
+});
 //Function
 window.handleEditOrder = (id) => {
-    let orders = JSON.parse(localStorage.getItem("orders"));
-    let orderEdit = orders.find((order) => String(order.id) === String(id));
+  let orders = JSON.parse(localStorage.getItem('orders'));
+  let orderEdit = orders.find((order) => String(order.id) === String(id));
 
-    fillDataTableOrderEdit(orderEdit);
+  fillDataTableOrderEdit(orderEdit);
 
-    localStorage.setItem("orderEdit", JSON.stringify(orderEdit));
+  localStorage.setItem('orderEdit', JSON.stringify(orderEdit));
 };
 
 window.handleMinusButton = (foodId) => {
-    let orderEdit = JSON.parse(localStorage.getItem("orderEdit"));
-    let foodListOrderEdit = JSON.parse(orderEdit.foodList);
-    for (const food of foodListOrderEdit) {
-        if (food.id == foodId) {
-            if (food.quantity >= 2) {
-                food.quantity--;
-            }
-        }
+  let orderEdit = JSON.parse(localStorage.getItem('orderEdit'));
+  let foodListOrderEdit = JSON.parse(orderEdit.foodList);
+  for (const food of foodListOrderEdit) {
+    if (food.id == foodId) {
+      if (food.quantity >= 2) {
+        food.quantity--;
+      }
     }
-    orderEdit.foodList = JSON.stringify(foodListOrderEdit);
-    localStorage.setItem("orderEdit", JSON.stringify(orderEdit));
-    fillDataTableOrderEdit(orderEdit);
+  }
+  orderEdit.foodList = JSON.stringify(foodListOrderEdit);
+  localStorage.setItem('orderEdit', JSON.stringify(orderEdit));
+  fillDataTableOrderEdit(orderEdit);
 };
 
 window.handlePlusButton = (foodId) => {
-    let orderEdit = JSON.parse(localStorage.getItem("orderEdit"));
-    let foodListOrderEdit = JSON.parse(orderEdit.foodList);
-    for (const food of foodListOrderEdit) {
-        if (food.id == foodId) {
-            food.quantity++;
-        }
+  let orderEdit = JSON.parse(localStorage.getItem('orderEdit'));
+  let foodListOrderEdit = JSON.parse(orderEdit.foodList);
+  for (const food of foodListOrderEdit) {
+    if (food.id == foodId) {
+      food.quantity++;
     }
-    orderEdit.foodList = JSON.stringify(foodListOrderEdit);
-    localStorage.setItem("orderEdit", JSON.stringify(orderEdit));
-    fillDataTableOrderEdit(orderEdit);
+  }
+  orderEdit.foodList = JSON.stringify(foodListOrderEdit);
+  localStorage.setItem('orderEdit', JSON.stringify(orderEdit));
+  fillDataTableOrderEdit(orderEdit);
 };
 
 window.handleBtnDeleteFoodOrder = (foodId) => {
-    let orderEdit = JSON.parse(localStorage.getItem("orderEdit"));
-    let foodListOrderEdit = JSON.parse(orderEdit.foodList);
+  let orderEdit = JSON.parse(localStorage.getItem('orderEdit'));
+  let foodListOrderEdit = JSON.parse(orderEdit.foodList);
 
-    foodListOrderEdit = foodListOrderEdit.filter((food) => {
-        return String(food.id) !== String(foodId);
-    });
-    console.log(foodListOrderEdit);
-    orderEdit.foodList = JSON.stringify(foodListOrderEdit);
-    localStorage.setItem("orderEdit", JSON.stringify(orderEdit));
-    fillDataTableOrderEdit(orderEdit);
+  foodListOrderEdit = foodListOrderEdit.filter((food) => {
+    return String(food.id) !== String(foodId);
+  });
+  console.log(foodListOrderEdit);
+  orderEdit.foodList = JSON.stringify(foodListOrderEdit);
+  localStorage.setItem('orderEdit', JSON.stringify(orderEdit));
+  fillDataTableOrderEdit(orderEdit);
 };
 
 window.handleAddFoodOrderEdit = (foodId) => {
-    console.log(foodId)
-    let orderEdit = JSON.parse(localStorage.getItem("orderEdit"));
-    let foodListOrderEdit = JSON.parse(orderEdit.foodList);
-    let flag=false;
-    for (const food of foodListOrderEdit) {
-        if(String(food.id) === String(foodId)) {
-            console.log('ahah')
-            food.quantity++;
-            flag=true;
-        }    
+  console.log(foodId);
+  let orderEdit = JSON.parse(localStorage.getItem('orderEdit'));
+  let foodListOrderEdit = JSON.parse(orderEdit.foodList);
+  let flag = false;
+  for (const food of foodListOrderEdit) {
+    if (String(food.id) === String(foodId)) {
+      console.log('ahah');
+      food.quantity++;
+      flag = true;
     }
-    if(!flag) {
-        //If not exists in foodListOrderEdit then push
-        let food = getFoodListFromLocalStorage().find(food => String(foodId) === String(food.id));
-        let foodAdd = {
-            id:food.id,
-            name:food.name,
-            single_price:food.price,
-            quantity:1
-        };
-        foodListOrderEdit.push(foodAdd);
-    }
-    console.log(foodListOrderEdit)
-    orderEdit.foodList = JSON.stringify(foodListOrderEdit);
-    localStorage.setItem("orderEdit", JSON.stringify(orderEdit));
-    fillDataTableOrderEdit(orderEdit);
-}
+  }
+  if (!flag) {
+    //If not exists in foodListOrderEdit then push
+    let food = getFoodListFromLocalStorage().find((food) => String(foodId) === String(food.id));
+    let foodAdd = {
+      id: food.id,
+      name: food.name,
+      single_price: food.price,
+      quantity: 1,
+    };
+    foodListOrderEdit.push(foodAdd);
+  }
+  console.log(foodListOrderEdit);
+  orderEdit.foodList = JSON.stringify(foodListOrderEdit);
+  localStorage.setItem('orderEdit', JSON.stringify(orderEdit));
+  fillDataTableOrderEdit(orderEdit);
+};
+
+window.handleCompleteOrder = async (orderId) => {
+  let orders = JSON.parse(localStorage.getItem('orders'));
+  let orderCompleted = orders.find(order => order.id ==orderId)
+  orderCompleted.status="1";
+  await updateOrder(orderCompleted);
+  await getOrders();
+  fillDataTableOrder();
+};
 
 let renderMenu = () => {
-    let foodList = getFoodListFromLocalStorage();
-    console.log(foodList);
-    let content = "";
+  let foodList = getFoodListFromLocalStorage();
+  console.log(foodList);
+  let content = '';
 
-    foodList.forEach((food) => {
-        content += `       
+  foodList.forEach((food) => {
+    content += `       
         <div class="card d-flex align-items-center text-center">
         <img src="${food.image}" class="card-img-top" alt="Food image" />
         <div class="card-body">
@@ -108,19 +117,19 @@ let renderMenu = () => {
         </div>
     </div>
         `;
-    });
+  });
 
-    document.querySelector(".food-menu").innerHTML = content;
+  document.querySelector('.food-menu').innerHTML = content;
 };
 
 let fillDataTableOrderEdit = (order) => {
-    let tbodyCart = document.querySelector(".table-cart tbody");
-    let foodListOrderEdit = JSON.parse(order.foodList);
+  let tbodyCart = document.querySelector('.table-cart tbody');
+  let foodListOrderEdit = JSON.parse(order.foodList);
 
-    let total = calculateTotalPrice(foodListOrderEdit);
-    let content = "";
-    for (let food of foodListOrderEdit) {
-        content += `
+  let total = calculateTotalPrice(foodListOrderEdit);
+  let content = '';
+  for (let food of foodListOrderEdit) {
+    content += `
         <tr>
             <td>${food.name}</td>
             <td>
@@ -129,13 +138,9 @@ let fillDataTableOrderEdit = (order) => {
                     role="group"
                     aria-label="Basic example"
                 >
-                    <button type="button" class="btn btn-secondary minus" onclick="handleMinusButton(${
-                        food.id
-                    })">-</button>
+                    <button type="button" class="btn btn-secondary minus" onclick="handleMinusButton(${food.id})">-</button>
                     <button type="button" class="btn btn-light counter">${food.quantity}</button>
-                    <button type="button" class="btn btn-secondary plus mr-2" onclick="handlePlusButton(${
-                        food.id
-                    })">+</button>
+                    <button type="button" class="btn btn-secondary plus mr-2" onclick="handlePlusButton(${food.id})">+</button>
                     <button type="button" class="btn btn-danger" onclick="handleBtnDeleteFoodOrder(${food.id})">
                         <i class="fa-solid fa fa-times"></i>
                     </button>
@@ -145,24 +150,27 @@ let fillDataTableOrderEdit = (order) => {
             <td>${food.single_price * food.quantity}</td>
         </tr>
         `;
-    }
-    document.querySelector(".total-price").innerHTML = total;
-    tbodyCart.innerHTML = content;
+  }
+  document.querySelector('.total-price').innerHTML = total;
+  tbodyCart.innerHTML = content;
 };
 
 let fillDataTableOrder = () => {
-    let tbodyOrder = document.querySelector(".data .table-order tbody");
-    let orders = JSON.parse(localStorage.getItem("orders"));
-    let content = "";
-
-    orders.forEach((order) => {
-        console.log(order);
-        let foodListOrder = JSON.parse(order.foodList);
-        console.log(foodListOrder);
-        console.log(calculateTotalPrice(foodListOrder));
-        content += `
+  let tbodyOrder = document.querySelector('.data .table-order tbody');
+  let orders = JSON.parse(localStorage.getItem('orders'));
+  let content = '';
+  orders = orders.filter((order) => order.status == '0');
+  //Just render pending orders
+  orders.forEach((order) => {
+    let foodListOrder = JSON.parse(order.foodList);
+    content += `
         <tr>
                                     <th scope="row">${order.id}</th>
+                                    <td>${(() => {
+                                      let timeCreated = order.createdAt;
+                                      let date = new Date(timeCreated);
+                                      return `${date.getDay()}-${date.getMonth()} | ${date.getHours()}:${date.getMinutes()}`;
+                                    })()}</td>
                                     <td>${order.userName}</td>
                                     <td>${calculateTotalPrice(foodListOrder)}đ</td>
                                     <td>
@@ -174,30 +182,35 @@ let fillDataTableOrder = () => {
                                         >
                                             <i class="fa fa-edit"></i>
                                         </button>
-                                        <button class="btn btn-success" onclick="">
+                                        
+                                        <button onclick="handleCompleteOrder(${order.id})" class="btn-check-order btn btn-success"  data-placement="bottom" 
+                                        data-trigger="hover" data-toggle="popover" title="Complete this order" data-content="Order is in pending state, click to complete this order.">
                                             <i class="fa fa-check"></i>
                                         </button>
                                     </td>
-                                </tr>
+                                
         `;
-    });
-    tbodyOrder.innerHTML = content;
+  });
+  tbodyOrder.innerHTML = content;
 };
 
 let calculateTotalPrice = (foodListOrder) => {
-    let total = 0;
-    for (let food of foodListOrder) {
-        total += food.single_price * food.quantity;
-    }
+  let total = 0;
+  for (let food of foodListOrder) {
+    total += food.single_price * food.quantity;
+  }
 
-    return total;
+  return total;
 };
-
-
 
 //Run here
 (async () => {
-    await getOrders();
-    renderMenu();
-    fillDataTableOrder();
+  await getOrders();
+  renderMenu();
+  fillDataTableOrder();
+
+  //Jquery for button complete order popover
+  $(function () {
+    $('[data-toggle="popover"]').popover();
+  });
 })();

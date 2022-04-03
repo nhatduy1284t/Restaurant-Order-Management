@@ -10,7 +10,7 @@
     width: 100%;
 }
 .main .container  {
-    max-width: 1200px;
+    max-width:100%;
 }
 .heading {
     display: flex;
@@ -55,4 +55,19 @@
 
 .add-food-card {
     box-shadow: none;
+}
+
+@media screen and (max-width:1220px) {
+    .heading {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #categories > div {
+        display:flex;
+        justify-content: center;
+    }
+    #categories > div button {
+        margin: 0 5px;
+    }
 }

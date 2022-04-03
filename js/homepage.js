@@ -3,20 +3,21 @@ import { createUser, getAccounts } from "./ApiFunction.js";
 console.log("homepage.js loaded");
 
 if(localStorage.getItem('user')) {
-    let user = JSON.parse(localStorage.getItem('user'));
-    document.querySelector(".btn-display-login").innerHTML = `Hello ${user.username}!`;
+    document.querySelector(".btn-display-login").innerHTML = `Log out`;
 }
 
 let btnDisplayRegisterForm = document.querySelector(".btn-display-register-form");
+let btnDisplayLogin = document.querySelector(".btn-display-login");
 let registerFormWrapper = document.querySelector(".form-register-wrapper");
 let loginFormWrapper = document.querySelector(".form-login-wrapper");
 let btnGoBackLogin = document.querySelector(".btn-go-back-login");
 let btnCloseForm = document.querySelector(".modal-login .close");
-
 let formLogin = document.querySelector(".form-login");
 let formRegister = document.querySelector(".form-register");
-
 let inputConfirmPassword = document.querySelector(".form-register #confirmPassword");
+
+let btnMenuLink= document.querySelector('.btn-menu-link');
+
 
 btnDisplayRegisterForm.addEventListener("click", () => {
     registerFormWrapper.classList.remove("d-none");
@@ -50,6 +51,7 @@ formRegister.addEventListener("submit", async (e) => {
 });
 
 formLogin.addEventListener("submit", async (e) => {
+  
     e.preventDefault();
 
     let user = {};
@@ -66,9 +68,9 @@ formLogin.addEventListener("submit", async (e) => {
         if (account.username.toLowerCase() === user.username.toLowerCase()) {
             if (account.password === user.password) {
                 localStorage.setItem("user", JSON.stringify(account));
-                alert(`Chào ngài ${account.username} !`);
+                alert(`Hello ${account.username} !`);
                 btnCloseForm.click();
-                document.querySelector(".btn-display-login").innerHTML = `Hello ${account.username}!`;
+                document.querySelector(".btn-display-login").innerHTML = `Log out`;
                 return;
             }
         }
@@ -86,3 +88,26 @@ inputConfirmPassword.addEventListener("input", () => {
         inputConfirmPassword.classList.remove("is-invalid");
     }
 });
+
+btnMenuLink.addEventListener('click',() => {
+    if(!localStorage.getItem('user')) {
+        alert('You have to login to access to this page.');
+        return;
+    }
+    // let user = JSON.parse( localStorage.getItem('user'));
+    window.location.href="./order_menu.html";
+})
+
+
+
+btnDisplayLogin.addEventListener('click',() => {
+   //if already login
+   if(localStorage.getItem('user')) {
+    if(confirm('Do you want to log out?')) {
+        localStorage.removeItem('user');
+        document.querySelector(".btn-display-login").innerHTML = `Login`;
+        window.location.href="./homepage.html";
+        return;
+    }
+}
+})
