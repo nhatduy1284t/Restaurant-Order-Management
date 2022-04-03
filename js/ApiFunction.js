@@ -91,8 +91,10 @@ export async function editOrder(order) {
     try {
         const res = await axios.put(`${URL}/${ORDERS}/${order.id}`,order);
         console.log(res);
+        alert('Edit order successfully!');
     } catch (error) {
         console.log('Error: ' + error.response);
+        
     }
 }
 

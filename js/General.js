@@ -1,5 +1,10 @@
 console.log("General loaded");
 
+//Every website has this general component
+document.querySelector('head title').innerHTML="ITEC Restaurant";
+document.querySelector('head').innerHTML+=`<link rel="shortcut icon" href="../images/logo.png" />`;
+
+
 let navBtn = document.querySelector(".nav-btn");
 let navbtnContainer = navBtn.parentElement;
 let nav = document.querySelector("#nav");
@@ -50,3 +55,6 @@ navBtn.addEventListener('click', () => {
     navBtn.classList.toggle("nav-btn-on");
     navbtnContainer.classList.toggle("nav-btn-container-on");
 })
+
+
+
